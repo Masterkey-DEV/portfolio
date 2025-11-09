@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+.cardContainer:hover .projectCard {
+    opacity: 0.5;
+    filter: blur(3px);
+  }
+
+  .cardContainer .projectCard:hover {
+    opacity: 1;
+    filter: blur();
+  }
+

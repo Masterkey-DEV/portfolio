@@ -1,22 +1,72 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
+import LandingHeader from "../components/LandingHeader.astro";
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Juan Moreno</title>
+    <!-- ================== META BÁSICAS ================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="es" />
+    <meta name="author" content="Juan Sebastian Moreno Mosquera" />
+    <meta
+      name="description"
+      content="Portafolio web de Juan Sebastian Moreno Mosquera, programador full stack y estudiante de Ingeniería en Sistemas. Desarrollo soluciones web modernas con tecnologías frontend y backend."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ================== SEO ADICIONALES ================== -->
+    <meta name="generator" content="Visual Studio Code" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <!-- ================== OPEN GRAPH (FACEBOOK, WHATSAPP, LINKEDIN) ================== -->
+    <meta
+      property="og:title"
+      content="Juan Sebastian Moreno Mosquera | Programador Full Stack"
+    />
+    <meta
+      property="og:description"
+      content="Desarrollador full stack y estudiante de Ingeniería en Sistemas. Mira mis proyectos web y habilidades en desarrollo frontend y backend."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tusitio.com" />
+    <!-- Cambia por tu dominio real -->
+    <meta
+      property="og:image"
+      content="https://tusitio.com/imagen-portafolio.jpg"
+    />
+    <!-- Imagen representativa -->
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- ================== TWITTER / X ================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Juan Sebastian Moreno Mosquera | Programador Full Stack"
+    />
+    <meta
+      name="twitter:description"
+      content="Portafolio de desarrollo web, proyectos y experiencia como programador full stack."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tusitio.com/imagen-portafolio.jpg"
+    />
+    <meta name="twitter:creator" content="@tuusuario" />
+    <!-- Opcional si tienes Twitter -->
+
+    <!-- ================== FAVICON ================== -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="dark:bg-black bg-stone-50 text-stone-800 antialiased">
+    <LandingHeader />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,86 @@
+---
+
+---
+
+<header
+  class="w-full h-24 bg-white flex px-3 py-6 justify-between items-center box-border shadow-md sticky top-0 z-50"
+>
+  <div
+    id="menu-backdrop"
+    class="absolute bg-black/15 rounded
+        left-(--left) top-(--top)
+        w-(--width) h-(--height)
+        transition-all duration-300 ease-in-out opacity-0 -z-1"
+  >
+  </div>
+  <a class="logo hover:cursor-pointer text-xl font-medium" href="/">
+    <h3>Juan Moreno</h3>
+  </a>
+  <nav class="nav-bar">
+    <ul class="list-none flex gap-6">
+      <li><a href="/about">sobre mi</a></li>
+      <li><a href="#">perfil profesional </a></li>
+      <li><a href="#">proyectos</a></li>
+      <li><a href="#">contacto</a></li>
+    </ul>
+  </nav>
+</header>
+<style>
+  nav a {
+    padding: 8px 4px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #0077ff; /* Color azul al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+    cursor: pointer;
+  }
+</style>
+<script>
+  const listItem = document.querySelectorAll(".nav-bar a, .logo");
+  const menuBackdrop: HTMLElement = document.getElementById("menu-backdrop")!;
+  let timeoutId: any;
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      menuBackdrop.style.setProperty("--left", `${left}px`);
+      menuBackdrop.style.setProperty("--top", `${top}px`);
+      menuBackdrop.style.setProperty("--height", `${height}px`);
+      menuBackdrop.style.setProperty("--width", `${width}px`);
+
+      menuBackdrop.style.opacity = "1";
+      menuBackdrop.style.visibility = "visible";
+
+      // Cancela cualquier timeout existente
+      clearTimeout(timeoutId);
+    });
+
+    item.addEventListener("mouseleave", () => {
+      // Espera 200 ms antes de ocultar el fondo
+      timeoutId = setTimeout(() => {
+        menuBackdrop.style.opacity = "0";
+        menuBackdrop.style.visibility = "hidden";
+      }, 200);
+    });
+  });
+
+  // Cancela el timeout si el mouse vuelve a entrar antes de que se oculte
+  menuBackdrop.addEventListener("mouseenter", () => {
+    clearTimeout(timeoutId);
+  });
+
+  // Oculta el fondo si el mouse sale completamente de la barra de navegación
+  menuBackdrop.addEventListener("mouseleave", () => {
+    menuBackdrop.style.opacity = "0";
+    menuBackdrop.style.visibility = "hidden";
+  });
+</script>

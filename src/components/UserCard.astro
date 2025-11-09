@@ -1,0 +1,38 @@
+---
+import { CiLight } from "react-icons/ci";
+import { IoVolumeHighOutline } from "react-icons/io5";
+import { IoVolumeMuteOutline } from "react-icons/io5";
+import { MdNightlight } from "react-icons/md";
+---
+
+<header class="mb-16 flex items-start justify-between">
+  <div class="flex items-center gap-4">
+    <img
+      src="me.jpg"
+      alt="Juan Moreno"
+      class="h-16 w-16 rounded-full object-cover"
+    />
+    <div>
+      <h1 class="font-serif text-3xl font-normal italic text-stone-900">
+        Juan Moreno
+      </h1>
+      <p class="mt-1 text-sm text-stone-600">Full-stack Engineer</p>
+    </div>
+  </div>
+
+  <div class="flex gap-2">
+    <button
+      aria-label="Audio toggle"
+      class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 transition-colors hover:bg-stone-300"
+    >
+      <CiLight />
+    </button>
+
+    <button
+      aria-label="Bookmark"
+      class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 transition-colors hover:bg-stone-300"
+    >
+      <IoVolumeHighOutline />
+    </button>
+  </div>
+</header>
