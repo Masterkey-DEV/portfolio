@@ -1,98 +1,214 @@
+---
+import {
+  IoClose,
+  IoMenu,
+  IoHome,
+  IoPerson,
+  IoBriefcase,
+  IoMail,
+} from "react-icons/io5";
+---
+
 <header
   class="w-full h-24 bg-white/50 dark:bg-gray-950/50 dark:text-white flex px-4 py-6 justify-between items-center box-border shadow-md fixed top-0 z-50 backdrop-blur-md transition-colors"
 >
   <div
     id="menu-backdrop"
-    class="absolute bg-black/15 dark:bg-white/15 rounded
-        left-(--left) top-(--top)
-        w-(--width) h-(--height)
-        transition-all duration-300 ease-in-out opacity-0 -z-1"
+    class="absolute bg-black/10 dark:bg-white/10 rounded-xl
+           transition-all duration-300 ease-in-out opacity-0
+           pointer-events-none z-0"
   >
   </div>
 
   <a
-    class="logo hover:cursor-pointer text-xl font-medium transition-colors"
+    class="logo hover:cursor-pointer text-xl font-medium transition-colors z-10"
     href="/"
   >
     <h3>Juan Moreno</h3>
   </a>
 
-  <nav class="nav-bar">
-    <ul class="list-none flex gap-6">
+  <nav class="nav-bar z-10">
+    <ul class="list-none hidden sm:flex gap-6">
       <li><a class="transition-colors" href="/about">sobre mi</a></li>
       <li>
         <a class="transition-colors" href="/perfilProfesional"
           >perfil profesional</a
         >
       </li>
-      <li><a class="transition-colors" href="/#projects">proyectos</a></li>
+      <li><a class="transition-colors" href="#">proyectos</a></li>
       <li><a class="transition-colors" href="#">contacto</a></li>
     </ul>
+    <!-- Botón menú móvil -->
+    <button
+      id="open-menu"
+      class="sm:hidden p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+      aria-label="Abrir menú"
+    >
+      <IoMenu size={28} />
+    </button>
   </nav>
+</header>
+<!-- 🔹 Fondo oscurecido -->
+<div
+  id="menu-overlay"
+  class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-998"
+>
+</div>
 
-  <style>
-    nav a {
-      padding: 8px 4px;
-      text-decoration: none;
-      color: #333; /* claro */
-      font-weight: 500;
-      font-size: 16px;
-      transition:
-        color 0.3s ease,
-        transform 0.3s ease;
-    }
+<!-- 🔹 Menú móvil -->
+<aside
+  id="mobile-menu"
+  class="fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6 z-999"
+>
+  <div class="flex justify-between items-center mb-8">
+    <a class="text-lg font-semibold text-gray-800 dark:text-gray-100" href="/"
+      >Menú</a
+    >
+    <button
+      id="close-menu"
+      class="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+      aria-label="Cerrar menú"
+    >
+      <IoClose size={26} />
+    </button>
+  </div>
 
-    nav a:hover {
-      color: #0077ff;
-      transform: translateY(-2px);
-      cursor: pointer;
-    }
+  <ul
+    class="flex flex-col gap-6 text-gray-800 dark:text-gray-200 font-medium text-lg"
+  >
+    <li class="flex items-center gap-2">
+      <IoHome />
+      <a
+        href="/"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >Inicio</a
+      >
+    </li>
+    <li class="flex items-center gap-2">
+      <IoPerson />
+      <a
+        href="/about"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >Sobre mí</a
+      >
+    </li>
+    <li class="flex items-center gap-2">
+      <IoBriefcase />
+      <a
+        href="/perfilProfesional"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >Perfil profesional</a
+      >
+    </li>
+    <li class="flex items-center gap-2">
+      <IoBriefcase />
+      <a
+        href="/#projects"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >Proyectos</a
+      >
+    </li>
+    <li class="flex items-center gap-2">
+      <IoMail />
+      <a
+        href="#"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >Contacto</a
+      >
+    </li>
+  </ul>
+</aside>
 
-    /* Dark mode para enlaces */
-    html.dark nav a {
-      color: #ddd;
-    }
+<style>
+  nav a {
+    padding: 8px 4px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
 
-    html.dark nav a:hover {
-      color: #3399ff;
-    }
-  </style>
+  nav a:hover {
+    color: #0077ff;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
 
-  <script>
-    const listItem = document.querySelectorAll(".nav-bar a, .logo");
-    const menuBackdrop: HTMLElement = document.getElementById("menu-backdrop")!;
-    let timeoutId: any;
+  html.dark nav a {
+    color: #ddd;
+  }
 
-    listItem.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        const { left, top, width, height } = item.getBoundingClientRect();
+  html.dark nav a:hover {
+    color: #3399ff;
+  }
 
-        menuBackdrop.style.setProperty("--left", `${left}px`);
-        menuBackdrop.style.setProperty("--top", `${top}px`);
-        menuBackdrop.style.setProperty("--height", `${height}px`);
-        menuBackdrop.style.setProperty("--width", `${width}px`);
+  #menu-backdrop {
+    position: fixed;
+    transition: all 0.3s ease;
+  }
+</style>
 
-        menuBackdrop.style.opacity = "1";
-        menuBackdrop.style.visibility = "visible";
+<script>
+  const openMenu = document.getElementById("open-menu")!;
+  const closeMenu = document.getElementById("close-menu")!;
+  const mobileMenu = document.getElementById("mobile-menu")!;
+  const overlay = document.getElementById("menu-overlay")!;
 
-        clearTimeout(timeoutId);
+  const open = () => {
+    mobileMenu.classList.remove("translate-x-full");
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+  };
+
+  const close = () => {
+    mobileMenu.classList.add("translate-x-full");
+    overlay.classList.add("opacity-0", "pointer-events-none");
+  };
+
+  openMenu.addEventListener("click", open);
+  closeMenu.addEventListener("click", close);
+  overlay.addEventListener("click", close);
+
+  // Cerrar con tecla ESC
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+
+  ////
+  const listItems = document.querySelectorAll(".nav-bar a, .logo");
+  const menuBackdrop = document.getElementById("menu-backdrop")!;
+  let timeoutId: any;
+
+  listItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      // Se actualizan las propiedades directamente (ahora sí animables)
+      Object.assign(menuBackdrop.style, {
+        left: `${left}px`,
+        top: `${top}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+        opacity: "1",
+        visibility: "visible",
       });
 
-      item.addEventListener("mouseleave", () => {
-        timeoutId = setTimeout(() => {
-          menuBackdrop.style.opacity = "0";
-          menuBackdrop.style.visibility = "hidden";
-        }, 200);
-      });
-    });
-
-    menuBackdrop.addEventListener("mouseenter", () => {
       clearTimeout(timeoutId);
     });
 
-    menuBackdrop.addEventListener("mouseleave", () => {
-      menuBackdrop.style.opacity = "0";
-      menuBackdrop.style.visibility = "hidden";
+    item.addEventListener("mouseleave", () => {
+      timeoutId = setTimeout(() => {
+        menuBackdrop.style.opacity = "0";
+        menuBackdrop.style.visibility = "hidden";
+      }, 200);
     });
-  </script>
-</header>
+  });
+
+  menuBackdrop.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+  menuBackdrop.addEventListener("mouseleave", () => {
+    menuBackdrop.style.opacity = "0";
+    menuBackdrop.style.visibility = "hidden";
+  });
+</script>

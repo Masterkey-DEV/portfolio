@@ -22,7 +22,6 @@ body,
 * {
   transition-property: background-color, color, border-color, fill, stroke;
   transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 html {

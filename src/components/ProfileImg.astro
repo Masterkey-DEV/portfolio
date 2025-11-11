@@ -1,19 +1,22 @@
 ---
-const { img } = Astro.props;
+const { img, alt } = Astro.props;
 ---
 
 <!-- Imagen -->
 <div class="flex-1 flex justify-center md:max-w-[50%] mt-10 md:mt-0">
   <img
-    class="rounded-full bg-linear-to-t from-indigo-600 to-emerald-500 p-1 animate-bounce w-48 sm:w-60 md:w-72 lg:w-80 shadow-lg shadow-stone-300/30 dark:shadow-stone-900/50 transition-shadow"
+    class="w-full h-full rounded-full bg-linear-to-t from-indigo-600 to-emerald-500 p-1 bounce sm:w-60 md:w-72 lg:w-80 shadow-lg shadow-stone-300/30 dark:shadow-stone-900/50 transition-shadow"
     src={img}
-    alt="una imagen mia"
+    alt={alt}
   />
 </div>
 
 <style>
-  .animate-bounce {
-    animation: bounce 3s ease-in-out infinite;
+  /* Solo aplica el bounce en pantallas >=800px */
+  @media (min-width: 800px) {
+    .bounce {
+      animation: bounce 3s ease-in-out infinite;
+    }
   }
 
   @keyframes bounce {
