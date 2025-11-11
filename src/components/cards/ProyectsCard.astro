@@ -1,0 +1,18 @@
+---
+const { title, description, href, img } = Astro.props;
+---
+
+<div
+  class={`projectCard relative overflow-hidden rounded-2xl bg-linear-to-br from-amber-400 to-blue-400 dark:from-amber-700 dark:to-blue-900 p-8 transition-transform hover:scale-[1.02]`}
+>
+  <a href={href}>
+    <div class="relative z-10">
+      <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+        {title}
+      </h3>
+      <p class="text-sm text-gray-800 dark:text-stone-300">
+        {description}
+      </p>
+    </div>
+  </a>
+</div>

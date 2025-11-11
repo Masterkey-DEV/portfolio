@@ -1,0 +1,27 @@
+---
+const { detailsUrl, liveUrl } = Astro.props;
+---
+
+<div
+  class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+>
+  <div class="text-center text-white">
+    <p class="text-sm font-medium mb-2">View Details</p>
+    <div class="flex gap-2 justify-center">
+      <a
+        href={detailsUrl}
+        class="px-3 py-1 bg-white/20 rounded text-xs hover:bg-white/30 transition-colors"
+      >
+        Details
+      </a>
+      <a
+        href={liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1 bg-white/20 rounded text-xs hover:bg-white/30 transition-colors"
+      >
+        Live
+      </a>
+    </div>
+  </div>
+</div>

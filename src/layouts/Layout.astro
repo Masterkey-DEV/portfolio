@@ -1,10 +1,10 @@
 ---
 import "../styles/global.css";
-import LandingHeader from "../components/LandingHeader.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -64,9 +64,21 @@ import LandingHeader from "../components/LandingHeader.astro";
 
     <!-- ================== FAVICON ================== -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script>
+      // Se ejecuta antes de que el contenido se renderice
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body class="dark:bg-black bg-stone-50 text-stone-800 antialiased">
-    <LandingHeader />
+  <body class="bg-stone-50 text-stone-800 antialiased dark:bg-black">
+    <Header />
     <slot />
   </body>
 </html>

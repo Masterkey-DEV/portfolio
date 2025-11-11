@@ -1,0 +1,21 @@
+---
+import AncordSection from "./AncordSection.astro";
+
+const { title, content } = Astro.props;
+---
+
+<div
+  class="text-left flex flex-col gap-6 flex-1 bg-linear-to-r from-indigo-600 to-emerald-500 bg-clip-text text-transparent"
+>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold">
+    {title}
+  </h1>
+
+  <p
+    class="leading-relaxed text-stone-700 dark:text-stone-300 text-base sm:text-lg transition-colors"
+  >
+    {content}
+  </p>
+
+  <AncordSection />
+</div>

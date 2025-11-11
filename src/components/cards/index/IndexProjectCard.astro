@@ -1,0 +1,32 @@
+---
+import ProjectTags from "../../ProjectTags.astro";
+import ProjectOverlay from "../../ProjectOverlay.astro";
+
+const { project } = Astro.props;
+---
+
+<div class="group cursor-pointer">
+  <div
+    class="relative h-48 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4"
+  >
+    <img
+      src={project.image}
+      alt={project.title}
+      class="object-cover group-hover:scale-110 transition-transform duration-500 absolute inset-0 w-full h-full"
+      loading="lazy"
+    />
+    <ProjectOverlay detailsUrl={project.detailsUrl} liveUrl={project.liveUrl} />
+  </div>
+
+  <div class="space-y-2">
+    <ProjectTags tags={project.tags} />
+    <h3
+      class="font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors"
+    >
+      {project.title}
+    </h3>
+    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+      {project.description}
+    </p>
+  </div>
+</div>

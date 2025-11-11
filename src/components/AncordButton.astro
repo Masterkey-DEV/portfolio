@@ -1,0 +1,9 @@
+---
+const { href, content, extraClass } = Astro.props;
+---
+
+<a
+  href={href}
+  class=` ${extraClass} text-white h-10 flex justify-center items-center px-6 rounded-md hover:-translate-y-0.5 transition-transform ease-in `
+  >{content}</a
+>

@@ -1,0 +1,98 @@
+<header
+  class="w-full h-24 bg-white/50 dark:bg-gray-950/50 dark:text-white flex px-4 py-6 justify-between items-center box-border shadow-md fixed top-0 z-50 backdrop-blur-md transition-colors"
+>
+  <div
+    id="menu-backdrop"
+    class="absolute bg-black/15 dark:bg-white/15 rounded
+        left-(--left) top-(--top)
+        w-(--width) h-(--height)
+        transition-all duration-300 ease-in-out opacity-0 -z-1"
+  >
+  </div>
+
+  <a
+    class="logo hover:cursor-pointer text-xl font-medium transition-colors"
+    href="/"
+  >
+    <h3>Juan Moreno</h3>
+  </a>
+
+  <nav class="nav-bar">
+    <ul class="list-none flex gap-6">
+      <li><a class="transition-colors" href="/about">sobre mi</a></li>
+      <li>
+        <a class="transition-colors" href="/perfilProfesional"
+          >perfil profesional</a
+        >
+      </li>
+      <li><a class="transition-colors" href="/#projects">proyectos</a></li>
+      <li><a class="transition-colors" href="#">contacto</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    nav a {
+      padding: 8px 4px;
+      text-decoration: none;
+      color: #333; /* claro */
+      font-weight: 500;
+      font-size: 16px;
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0077ff;
+      transform: translateY(-2px);
+      cursor: pointer;
+    }
+
+    /* Dark mode para enlaces */
+    html.dark nav a {
+      color: #ddd;
+    }
+
+    html.dark nav a:hover {
+      color: #3399ff;
+    }
+  </style>
+
+  <script>
+    const listItem = document.querySelectorAll(".nav-bar a, .logo");
+    const menuBackdrop: HTMLElement = document.getElementById("menu-backdrop")!;
+    let timeoutId: any;
+
+    listItem.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        const { left, top, width, height } = item.getBoundingClientRect();
+
+        menuBackdrop.style.setProperty("--left", `${left}px`);
+        menuBackdrop.style.setProperty("--top", `${top}px`);
+        menuBackdrop.style.setProperty("--height", `${height}px`);
+        menuBackdrop.style.setProperty("--width", `${width}px`);
+
+        menuBackdrop.style.opacity = "1";
+        menuBackdrop.style.visibility = "visible";
+
+        clearTimeout(timeoutId);
+      });
+
+      item.addEventListener("mouseleave", () => {
+        timeoutId = setTimeout(() => {
+          menuBackdrop.style.opacity = "0";
+          menuBackdrop.style.visibility = "hidden";
+        }, 200);
+      });
+    });
+
+    menuBackdrop.addEventListener("mouseenter", () => {
+      clearTimeout(timeoutId);
+    });
+
+    menuBackdrop.addEventListener("mouseleave", () => {
+      menuBackdrop.style.opacity = "0";
+      menuBackdrop.style.visibility = "hidden";
+    });
+  </script>
+</header>

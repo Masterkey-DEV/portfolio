@@ -1,0 +1,85 @@
+---
+import IndexProjectCard from "../cards/index/IndexProjectCard.astro";
+
+const projects = [
+  {
+    title: "esto se debe de cambiar luego",
+    tags: ["Web Application", "Featured"],
+    image:
+      "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/mze0vfpmxeecdvv8srbq",
+    description:
+      "Developed a specialized web-based accounting system for PT Jaya Persada Bali, a money changer requiring precise multi-currency transaction tracking and FIFO inventory valuation.",
+    detailsUrl:
+      "/Portfolio/pt-jaya-persada-bali-accounting-system-private-system-please-do-not-register-",
+    liveUrl: "https://pt-jaya-persada-bali.vercel.app/",
+  },
+  {
+    title: "PT BRO Bali Tour and Travel",
+    tags: ["Web Application", "Featured"],
+    image:
+      "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/kj4f9fvpmlyx7h1mpi4m",
+    description:
+      "Automated accounting system for PT BRO Bali Tour and Travel, replacing manual Excel processes with a secure, standardized solution and dynamic financial reports.",
+    detailsUrl: "/Portfolio/pt-bro-bali-tour-and-travel",
+    liveUrl: "https://ptbro-accounting-app.vercel.app/",
+  },
+  {
+    title: "Sakura Spa Banyuwangi POS System",
+    tags: ["Web Application"],
+    image:
+      "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/lnmbtrny1gi3bktv2nqi",
+    description:
+      "Reservation, scheduling, and POS system for Sakura Spa Banyuwangi with online booking, transaction management, and responsive UI.",
+    detailsUrl:
+      "/Portfolio/sakura-spa-banyuwangi-pos-scheduling-reservation-system",
+    liveUrl: "https://sakuraspabwi.com/",
+  },
+  {
+    title: "CV. Bapak Anak Jaya Abadi",
+    tags: ["Landing Page", "Featured"],
+    image:
+      "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/pc3snehphit7ekjncreh",
+    description:
+      "Corporate landing page for a heavy equipment sales and rental leader, built with Next.js, Tailwind, and Framer Motion.",
+    detailsUrl: "/Portfolio/cv-bapak-anak-jaya-abadi",
+    liveUrl: "https://www.cvbapakanakjayaabadi.com/",
+  },
+];
+---
+
+<section class="py-20 bg-white dark:bg-black transition-colors">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        Selected Projects
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Real solutions for real businesses — from AI platforms to financial
+        systems
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {projects.map((p) => <IndexProjectCard project={p} />)}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="/Portfolio"
+        class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium transition group"
+      >
+        View All Web Development Projects
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

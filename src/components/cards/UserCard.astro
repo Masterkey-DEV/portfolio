@@ -1,0 +1,58 @@
+---
+import { CiLight } from "react-icons/ci";
+import { IoVolumeHighOutline } from "react-icons/io5";
+import { IoVolumeMuteOutline } from "react-icons/io5";
+import { MdNightlight } from "react-icons/md";
+
+const { name, description } = Astro.props;
+---
+
+<header
+  class="mb-16 flex items-start justify-between bg-white dark:bg-stone-900 p-4 rounded-lg transition-colors"
+>
+  <div class="flex items-center gap-4">
+    <img
+      src="me.jpg"
+      alt="Juan Moreno"
+      class="h-16 w-16 rounded-full object-cover border-2 border-stone-300 dark:border-stone-600 transition-colors"
+    />
+    <div>
+      <h1
+        class="font-serif text-3xl font-normal italic text-stone-900 dark:text-white transition-colors"
+      >
+        {name}
+      </h1>
+      <p
+        class="mt-1 text-sm text-stone-600 dark:text-stone-300 transition-colors"
+      >
+        {description}
+      </p>
+    </div>
+  </div>
+
+  <div class="flex gap-2">
+    <button
+      id="darkMode"
+      aria-label="Toggle Dark Mode"
+      class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200 transition-colors hover:bg-stone-300 dark:hover:bg-stone-600"
+    >
+      <CiLight className="dark:hidden" />
+      <MdNightlight className="hidden dark:block" />
+    </button>
+
+    <button
+      aria-label="Audio toggle"
+      class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200 transition-colors hover:bg-stone-300 dark:hover:bg-stone-600"
+    >
+      <IoVolumeHighOutline />
+    </button>
+  </div>
+</header>
+<script>
+  const darkMode = document.getElementById("darkMode");
+  darkMode?.addEventListener("click", () => {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
