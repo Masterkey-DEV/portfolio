@@ -81,4 +81,29 @@ import Header from "../components/Header.astro";
     <Header />
     <slot />
   </body>
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+
+            // Obtener el índice para escalonar la animación
+            const index = [...document.querySelectorAll(".fade-in")].indexOf(
+              el
+            );
+
+            // Aplicar delay incremental
+            el.style.transitionDelay = `${index * 0.2}s`;
+
+            el.classList.add("visible");
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  </script>
 </html>
