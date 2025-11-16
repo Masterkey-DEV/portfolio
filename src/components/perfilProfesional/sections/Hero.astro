@@ -1,0 +1,46 @@
+---
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import SocialLink from "../SocialLink.astro";
+---
+
+<section
+  id="inicio"
+  class="flex flex-col items-center justify-center text-center min-h-screen px-6 fade-in"
+>
+  <img
+    src="/me.jpg"
+    alt="Profile picture"
+    class="w-40 h-40 rounded-full object-cover shadow-lg mb-6"
+  />
+  <h1 class="text-4xl font-bold mb-2">Juan Sebastián Moreno Mosquera</h1>
+  <h2 class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+    Full Stack Developer | Ingeniería en Sistemas
+  </h2>
+  <p class="max-w-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+    Apasionado por el desarrollo web, la optimización del rendimiento y la
+    creación de experiencias digitales limpias y funcionales. Busco unir diseño,
+    lógica y tecnología para construir soluciones eficientes y escalables para
+    todos los negocios.
+  </p>
+
+  <div class="flex gap-6 text-2xl">
+    <SocialLink
+      href="https://linkedin.com/in/juan-sebastian"
+      Icon={FaLinkedin}
+      label="LinkedIn"
+      hoverClass="hover:text-blue-600"
+    />
+    <SocialLink
+      href="https://github.com/juan-sebastian"
+      Icon={FaGithub}
+      label="GitHub"
+      hoverClass="hover:text-gray-800 dark:hover:text-gray-200"
+    />
+    <SocialLink
+      href="mailto:juan@example.com"
+      Icon={FaEnvelope}
+      label="Email"
+      hoverClass="hover:text-red-600"
+    />
+  </div>
+</section>

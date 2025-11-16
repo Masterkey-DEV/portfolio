@@ -63,6 +63,7 @@ import Header from "../components/Header.astro";
     <!-- Opcional si tienes Twitter -->
 
     <!-- ================== FAVICON ================== -->
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <script>
       // Se ejecuta antes de que el contenido se renderice
@@ -88,13 +89,19 @@ import Header from "../components/Header.astro";
           if (entry.isIntersecting) {
             const el = entry.target;
 
-            // Obtener el índice para escalonar la animación
             const index = [...document.querySelectorAll(".fade-in")].indexOf(
               el
             );
 
-            // Aplicar delay incremental
             el.style.transitionDelay = `${index * 0.2}s`;
+
+            el.addEventListener(
+              "transitionend",
+              (e) => {
+                el.style.transitionDelay = "0s";
+              },
+              { once: true }
+            );
 
             el.classList.add("visible");
             observer.unobserve(el);
@@ -105,5 +112,13 @@ import Header from "../components/Header.astro";
     );
 
     document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  </script>
+  <script>
+    const darkMode = document.getElementById("darkMode");
+    darkMode?.addEventListener("click", () => {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
   </script>
 </html>

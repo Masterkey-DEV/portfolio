@@ -1,0 +1,22 @@
+---
+// src/components/SocialLink.astro
+import type { ComponentType } from "astro";
+
+interface Props {
+  href: string;
+  Icon: ComponentType;
+  label: string;
+  hoverClass: string;
+}
+const { href, Icon, label, hoverClass } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`Enlace a ${label}`}
+  class={`transition ${hoverClass}`}
+>
+  <Icon />
+</a>

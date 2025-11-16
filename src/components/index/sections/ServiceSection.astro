@@ -1,0 +1,58 @@
+---
+import ServiceCard from "../cards/ServiceCard.astro";
+import { FaCode, FaCalculator, FaRobot } from "react-icons/fa";
+const services = [
+  {
+    title: "Desarrollo de Aplicaciones Web Personalizadas",
+    description:
+      "Desarrollo integral de software empresarial a medida que simplifica operaciones, aumenta la transparencia y fomenta el crecimiento.",
+    features: [
+      "Dashboards y analíticas empresariales",
+      "Diseño modular basado en datos",
+      "Implementación full-stack con Supabase + Next.js",
+    ],
+    icon: FaCode,
+    link: "/ContactMe",
+  },
+  {
+    title: "Sistemas Contables y Financieros",
+    description:
+      "Diseño y construcción de sistemas contables en la nube adaptados a cada modelo de negocio, mejorando la precisión y el control.",
+    features: [
+      "Reportes financieros dinámicos",
+      "Plan de cuentas (COA) y lógica de asientos personalizada",
+      "Integración backend SQL con RLS",
+    ],
+    icon: FaCalculator,
+    link: "/ContactMe",
+  },
+  {
+    title: "Integración de IA y Automatización de Procesos",
+    description:
+      "Integración de modelos de IA y flujos automatizados en los procesos cotidianos para operaciones más inteligentes y rápidas.",
+    features: [
+      "Automatización basada en IA",
+      "Generación y resumen de reportes",
+      "Integración con Notion / Google Sheets",
+    ],
+    icon: FaRobot,
+    link: "/ContactMe",
+  },
+];
+---
+
+<section class="container mx-auto px-6 py-16 fade-in">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+      Servicios que ofrezco
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      Soluciones web a medida que ayudan a los pequeños negocios a optimizar sus
+      operaciones y escalar de manera efectiva.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    {services.map((service) => <ServiceCard {...service} />)}
+  </div>
+</section>

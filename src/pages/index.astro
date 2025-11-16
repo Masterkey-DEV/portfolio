@@ -1,20 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LemaSection from "../components/sections/LemaSection.astro";
-import ProfileImg from "../components/ProfileImg.astro";
-import ServiceSection from "../components/sections/ServiceSection.astro";
+import LemaSection from "../components/index/sections/LemaSection.astro";
+import ProfileImg from "../components/index/ProfileImg.astro";
+import ServiceSection from "../components/index/sections/ServiceSection.astro";
+import ProjectSection from "../components/index/sections/ProjectSection.astro";
 import Footer from "../components/Footer.astro";
-import ProjectSection from "../components/sections/ProjectSection.astro";
 ---
 
 <Layout>
   <div class="relative flex flex-col overflow-x-hidden">
     <section
-      class="flex flex-col-reverse md:flex-row items-center px-6 pt-20 gap-10 min-h-screen w-[90%] mx-auto"
+      class="flex flex-col-reverse md:flex-row items-center px-6 pt-20 gap-10 min-h-screen w-[90%] mx-auto fade-in"
     >
       <LemaSection
-        title="Websites That Help Small Businesses Win More Customers"
-        content="I'm Willy, a web developer and former entrepreneur. After running cafés, shops, and service businesses for 10+ years, I know what owners really need: websites that attract customers, build trust, and keep things simple. I bring that business mindset into every project I build."
+        title="Sitios web que ayudan a los pequeños negocios a conseguir más clientes"
+        content="Soy Juan Moreno, estudiante de ingeniería informática. Aunque vengo del área de ventas, donde trabajé durante +tres meses, hoy aplico esa visión práctica y orientada a resultados al desarrollo web. Me enfoco en crear landing pages y tiendas que comuniquen con claridad y funcionen sin complicaciones. Mi prioridad es ofrecer simplicidad, velocidad y soluciones que realmente impulsen a los negocios."
       />
       <ProfileImg img="me.jpg" alt="imagen de Juan Moreno" />
     </section>

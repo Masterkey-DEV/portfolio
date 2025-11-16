@@ -1,0 +1,27 @@
+---
+// src/components/sections/Skills.astro
+import SkillCard from "../cards/SkillCard.astro";
+
+const SKILLS = [
+  "JavaScript / TypeScript",
+  "React / Astro",
+  "Node.js / Express",
+  "MongoDB / PostgreSQL",
+  "Tailwind CSS",
+  "Git / GitHub",
+  // Añade más aquí fácilmente
+];
+---
+
+<section id="habilidades" class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold text-center mb-10">
+      Habilidades Técnicas
+    </h2>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center"
+    >
+      {SKILLS.map((skill) => <SkillCard name={skill} />)}
+    </div>
+  </div>
+</section>
