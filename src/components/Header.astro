@@ -32,7 +32,7 @@ import { CiLight } from "react-icons/ci";
     </a>
     <button
       id="darkMode"
-      aria-label="Toggle Dark Mode"
+      aria-label="Cambiar tema"
       class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200 transition-colors hover:bg-stone-300 dark:hover:bg-stone-600"
     >
       <CiLight className="dark:hidden" />
@@ -42,14 +42,14 @@ import { CiLight } from "react-icons/ci";
 
   <nav class="nav-bar z-10">
     <ul class="list-none hidden sm:flex gap-6">
-      <li><a class="transition-colors" href="/about">sobre mi</a></li>
-      <li><a class="transition-colors" href="/#proyectos">proyectos</a></li>
+      <li><a class="transition-colors" href="/about">Sobre mí</a></li>
+      <li><a class="transition-colors" href="/#proyectos">Proyectos</a></li>
       <li>
         <a class="transition-colors" href="/perfilProfesional"
-          >perfil profesional</a
+          >Perfil profesional</a
         >
       </li>
-      <li><a class="transition-colors" href="/about/#contacto">contacto</a></li>
+      <li><a class="transition-colors" href="/about/#contacto">Contacto</a></li>
     </ul>
     <!-- Botón menú móvil -->
     <button
@@ -64,14 +64,14 @@ import { CiLight } from "react-icons/ci";
 <!-- 🔹 Fondo oscurecido -->
 <div
   id="menu-overlay"
-  class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-998"
+  class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-[998]"
 >
 </div>
 
 <!-- 🔹 Menú móvil -->
 <aside
   id="mobile-menu"
-  class="fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6 z-999"
+  class="fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6 z-[999]"
 >
   <div class="flex justify-between items-center mb-8">
     <a class="text-lg font-semibold text-gray-800 dark:text-gray-100" href="/"
@@ -190,7 +190,7 @@ import { CiLight } from "react-icons/ci";
     if (e.key === "Escape") close();
   });
 
-  ////
+
   const listItems = document.querySelectorAll(".nav-bar a, .logo");
   const menuBackdrop = document.getElementById("menu-backdrop")!;
   let timeoutId: any;
