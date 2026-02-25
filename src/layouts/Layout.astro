@@ -1,72 +1,42 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+
+const siteUrl = "https://juanmoreno.dev";
+const pageTitle = "Juan Sebastián Moreno | Desarrollador Full Stack";
+const pageDescription =
+  "Portafolio web de Juan Sebastián Moreno Mosquera: proyectos, servicios y experiencia en desarrollo frontend y backend.";
+const previewImage = `${siteUrl}/og-image.jpg`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Juan Moreno</title>
-    <!-- ================== META BÁSICAS ================== -->
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-language" content="es" />
-    <meta name="author" content="Juan Sebastian Moreno Mosquera" />
-    <meta
-      name="description"
-      content="Portafolio web de Juan Sebastian Moreno Mosquera, programador full stack y estudiante de Ingeniería en Sistemas. Desarrollo soluciones web modernas con tecnologías frontend y backend."
-    />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Juan Sebastián Moreno Mosquera" />
     <meta name="robots" content="index, follow" />
-
-    <!-- ================== SEO ADICIONALES ================== -->
-    <meta name="generator" content="Visual Studio Code" />
     <meta name="theme-color" content="#0d1117" />
+    <meta name="generator" content={Astro.generator} />
 
-    <!-- ================== OPEN GRAPH (FACEBOOK, WHATSAPP, LINKEDIN) ================== -->
-    <meta
-      property="og:title"
-      content="Juan Sebastian Moreno Mosquera | Programador Full Stack"
-    />
-    <meta
-      property="og:description"
-      content="Desarrollador full stack y estudiante de Ingeniería en Sistemas. Mira mis proyectos web y habilidades en desarrollo frontend y backend."
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tusitio.com" />
-    <!-- Cambia por tu dominio real -->
-    <meta
-      property="og:image"
-      content="https://tusitio.com/imagen-portafolio.jpg"
-    />
-    <!-- Imagen representativa -->
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={previewImage} />
     <meta property="og:locale" content="es_CO" />
 
-    <!-- ================== TWITTER / X ================== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Juan Sebastian Moreno Mosquera | Programador Full Stack"
-    />
-    <meta
-      name="twitter:description"
-      content="Portafolio de desarrollo web, proyectos y experiencia como programador full stack."
-    />
-    <meta
-      name="twitter:image"
-      content="https://tusitio.com/imagen-portafolio.jpg"
-    />
-    <meta name="twitter:creator" content="@tuusuario" />
-    <!-- Opcional si tienes Twitter -->
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={previewImage} />
 
-    <!-- ================== FAVICON ================== -->
-    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <script>
-      // Se ejecuta antes de que el contenido se renderice
       if (
         localStorage.getItem("theme") === "dark" ||
         (!localStorage.getItem("theme") &&
@@ -89,15 +59,12 @@ import Header from "../components/Header.astro";
           if (entry.isIntersecting) {
             const el = entry.target;
 
-            const index = [...document.querySelectorAll(".fade-in")].indexOf(
-              el
-            );
-
+            const index = [...document.querySelectorAll(".fade-in")].indexOf(el);
             el.style.transitionDelay = `${index * 0.2}s`;
 
             el.addEventListener(
               "transitionend",
-              (e) => {
+              () => {
                 el.style.transitionDelay = "0s";
               },
               { once: true }

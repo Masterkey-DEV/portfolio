@@ -1,30 +1,38 @@
+---
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+---
+
 <footer
   class="mt-24 border-t border-stone-300 dark:border-stone-700 py-8 text-center text-sm text-stone-600 dark:text-stone-400 transition-colors duration-300"
 >
-  <p>©2025 Juan Moreno. All rights reserved.</p>
-  <p class="mt-1">Based in Cali, Colombia • Remote clients worldwide</p>
+  <p>© 2025 Juan Moreno. Todos los derechos reservados.</p>
+  <p class="mt-1">Cali, Colombia • Trabajo remoto para clientes globales</p>
 
-  <div class="flex justify-center gap-6 mt-4 text-lg">
+  <div class="mt-4 flex justify-center gap-6 text-lg">
     <a
-      href="https://github.com/"
+      href="https://github.com/juan-sebastian"
+      target="_blank"
+      rel="noopener noreferrer"
       class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
       aria-label="GitHub"
     >
-      <i class="ri-github-line"></i>
+      <FaGithub />
     </a>
     <a
-      href="https://linkedin.com/"
+      href="https://linkedin.com/in/juan-sebastian"
+      target="_blank"
+      rel="noopener noreferrer"
       class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
       aria-label="LinkedIn"
     >
-      <i class="ri-linkedin-line"></i>
+      <FaLinkedin />
     </a>
     <a
-      href="mailto:juan.moreno@example.com"
+      href="mailto:juan@example.com"
       class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
       aria-label="Email"
     >
-      <i class="ri-mail-line"></i>
+      <FaEnvelope />
     </a>
   </div>
 </footer>
