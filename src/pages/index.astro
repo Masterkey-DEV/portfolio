@@ -1,29 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LemaSection from "../components/index/sections/LemaSection.astro";
-import ProfileImg from "../components/index/ProfileImg.astro";
-import ServiceSection from "../components/index/sections/ServiceSection.astro";
-import ProjectSection from "../components/index/sections/ProjectSection.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import SkillsSection from "../components/sections/SkillsSection.astro";
+import ServicesSection from "../components/sections/ServicesSection.astro";
+import ProjectsSection from "../components/sections/ProjectsSection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <div class="relative flex flex-col overflow-x-hidden">
-    <section
-      class="flex flex-col-reverse md:flex-row items-center px-6 pt-20 gap-10 min-h-screen w-[90%] mx-auto fade-in"
-    >
-      <LemaSection
-        title="Sitios web que ayudan a los pequeños negocios a conseguir más clientes"
-        content="Soy Juan Moreno, estudiante de ingeniería informática. Aunque vengo del área de ventas, donde trabajé durante +tres meses, hoy aplico esa visión práctica y orientada a resultados al desarrollo web. Me enfoco en crear landing pages y tiendas que comuniquen con claridad y funcionen sin complicaciones. Mi prioridad es ofrecer simplicidad, velocidad y soluciones que realmente impulsen a los negocios."
-      />
-      <ProfileImg img="me.jpg" alt="imagen de Juan Moreno" />
-    </section>
-    <section>
-      <ServiceSection />
-    </section>
-    <section id="projects">
-      <ProjectSection />
-    </section>
-  </div>
+  <main class="flex flex-col">
+    <HeroSection />
+    <AboutSection />
+    <SkillsSection />
+    <ServicesSection />
+    <ProjectsSection />
+    <ContactSection />
+  </main>
   <Footer />
 </Layout>

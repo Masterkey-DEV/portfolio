@@ -1,0 +1,108 @@
+---
+const projects = [
+  {
+    title: "PT Jaya Persada Bali - Sistema Contable",
+    tags: ["Aplicacion Web", "Destacado"],
+    image: "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/mze0vfpmxeecdvv8srbq",
+    description: "Sistema contable web especializado para un money changer con seguimiento preciso de transacciones en multiples monedas y valoracion de inventario FIFO.",
+    liveUrl: "https://pt-jaya-persada-bali.vercel.app/",
+  },
+  {
+    title: "PT BRO Bali Tour and Travel",
+    tags: ["Aplicacion Web", "Destacado"],
+    image: "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/kj4f9fvpmlyx7h1mpi4m",
+    description: "Sistema contable automatizado reemplazando procesos manuales en Excel por una solucion segura, estandarizada y con reportes financieros dinamicos.",
+    liveUrl: "https://ptbro-accounting-app.vercel.app/",
+  },
+  {
+    title: "Sakura Spa Banyuwangi",
+    tags: ["Aplicacion Web"],
+    image: "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/lnmbtrny1gi3bktv2nqi",
+    description: "Sistema de reservas, programacion y POS con reservas en linea, gestion de transacciones y una interfaz adaptable.",
+    liveUrl: "https://sakuraspabwi.com/",
+  },
+  {
+    title: "CV. Bapak Anak Jaya Abadi",
+    tags: ["Landing Page", "Destacado"],
+    image: "https://res.cloudinary.com/dpvhwdmon/image/upload/f_auto,q_auto/v1/portfolio-projects/pc3snehphit7ekjncreh",
+    description: "Landing page corporativa para un lider en venta y alquiler de maquinaria pesada, construida con Next.js, Tailwind y Framer Motion.",
+    liveUrl: "https://www.cvbapakanakjayaabadi.com/",
+  },
+];
+---
+
+<section id="proyectos" class="py-24 px-6 lg:px-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        Proyectos Destacados
+      </h2>
+      <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        Soluciones reales para negocios reales - desde plataformas de IA hasta sistemas financieros.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 fade-in">
+      {projects.map((project) => (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+              <span class="text-primary-foreground bg-primary px-4 py-2 rounded-lg text-sm font-medium">
+                Ver proyecto
+              </span>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.map((tag) => (
+                <span class={`text-xs px-3 py-1 rounded-full font-medium ${
+                  tag === "Destacado" 
+                    ? "bg-primary/10 text-primary" 
+                    : "bg-secondary text-secondary-foreground"
+                }`}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h3 class="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+              {project.title}
+            </h3>
+            <p class="text-sm text-muted-foreground line-clamp-2">
+              {project.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 fade-in">
+      <a
+        href="/proyectos"
+        class="inline-flex items-center px-6 py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-colors group"
+      >
+        Ver todos los proyectos
+        <svg
+          class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+---
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+---
+
+<section
+  id="inicio"
+  class="min-h-screen flex items-center justify-center pt-20 px-6 lg:px-12"
+>
+  <div class="max-w-6xl mx-auto w-full">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <!-- Content -->
+      <div class="flex-1 text-center lg:text-left fade-in">
+        <p class="text-primary font-medium mb-4 tracking-wide uppercase text-sm">
+          Desarrollador Full Stack
+        </p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          Hola, soy <span class="text-primary">Juan Moreno</span>
+        </h1>
+        <p class="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+          Creo sitios web y aplicaciones que ayudan a los negocios a conseguir mas clientes. 
+          Me especializo en desarrollar soluciones web modernas, accesibles y de alto rendimiento 
+          con React, Next.js y Node.js.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-10">
+          <a
+            href="/#contacto"
+            class="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+          >
+            Contactar
+          </a>
+          <a
+            href="/proyectos"
+            class="px-8 py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-colors"
+          >
+            Ver proyectos
+          </a>
+        </div>
+
+        <div class="flex items-center gap-6 justify-center lg:justify-start">
+          <a
+            href="https://linkedin.com/in/juan-sebastian"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="w-6 h-6" />
+          </a>
+          <a
+            href="https://github.com/juan-sebastian"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="GitHub"
+          >
+            <FaGithub className="w-6 h-6" />
+          </a>
+          <a
+            href="mailto:juan@example.com"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Email"
+          >
+            <FaEnvelope className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="flex-shrink-0 fade-in">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl"></div>
+          <img
+            src="/me.jpg"
+            alt="Juan Moreno"
+            class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hidden lg:flex justify-center mt-16 fade-in">
+      <a href="/#sobre-mi" class="text-muted-foreground hover:text-primary transition-colors animate-bounce">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
