@@ -1,0 +1,95 @@
+---
+import { FaCode, FaCalculator, FaRobot } from "react-icons/fa";
+
+const services = [
+  {
+    title: "Desarrollo de Aplicaciones Web",
+    description:
+      "Desarrollo integral de software empresarial a medida que simplifica operaciones, aumenta la transparencia y fomenta el crecimiento.",
+    features: [
+      "Dashboards y analiticas empresariales",
+      "Diseno modular basado en datos",
+      "Implementacion full-stack con Supabase + Next.js",
+    ],
+    icon: FaCode,
+  },
+  {
+    title: "Sistemas Contables y Financieros",
+    description:
+      "Diseno y construccion de sistemas contables en la nube adaptados a cada modelo de negocio, mejorando la precision y el control.",
+    features: [
+      "Reportes financieros dinamicos",
+      "Plan de cuentas y logica de asientos personalizada",
+      "Integracion backend SQL con RLS",
+    ],
+    icon: FaCalculator,
+  },
+  {
+    title: "Integracion de IA y Automatizacion",
+    description:
+      "Integracion de modelos de IA y flujos automatizados en los procesos cotidianos para operaciones mas inteligentes y rapidas.",
+    features: [
+      "Automatizacion basada en IA",
+      "Generacion y resumen de reportes",
+      "Integracion con Notion / Google Sheets",
+    ],
+    icon: FaRobot,
+  },
+];
+---
+
+<section id="servicios" class="py-24 px-6 lg:px-12 bg-secondary/30">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        Servicios que ofrezco
+      </h2>
+      <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        Soluciones web a medida que ayudan a los pequenos negocios a optimizar sus operaciones y escalar de manera efectiva.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+      {services.map((service) => (
+        <div class="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <service.icon className="w-7 h-7 text-primary" />
+          </div>
+
+          <h3 class="text-xl font-semibold text-card-foreground mb-4">
+            {service.title}
+          </h3>
+
+          <p class="text-muted-foreground mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <ul class="space-y-3">
+            {service.features.map((feature) => (
+              <li class="flex items-start text-sm text-muted-foreground">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 shrink-0" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="/#contacto"
+            class="inline-flex items-center mt-8 text-primary hover:text-primary/80 font-medium transition-colors group/link"
+          >
+            Solicitar presupuesto
+            <svg
+              class="ml-2 w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

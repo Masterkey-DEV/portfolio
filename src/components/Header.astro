@@ -1,169 +1,154 @@
 ---
-import {
-  IoClose,
-  IoMenu,
-  IoHome,
-  IoPerson,
-  IoBriefcase,
-  IoMail,
-} from "react-icons/io5";
-
+import { IoClose, IoMenu, IoHome, IoPerson, IoBriefcase, IoMail, IoCodeSlash } from "react-icons/io5";
 import { MdNightlight } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 ---
 
 <header
-  class="w-full h-24 bg-white/50 dark:bg-gray-950/50 dark:text-white flex px-4 py-6 justify-between items-center box-border shadow-md fixed top-0 z-50 backdrop-blur-md transition-colors"
+  class="w-full h-20 bg-background/80 backdrop-blur-lg border-b border-border flex px-6 lg:px-12 py-4 justify-between items-center fixed top-0 z-50 transition-colors"
 >
   <div
     id="menu-backdrop"
-    class="absolute bg-black/10 dark:bg-white/10 rounded-xl
-           transition-all duration-300 ease-in-out opacity-0
-           pointer-events-none z-0"
+    class="absolute bg-primary/10 rounded-lg transition-all duration-300 ease-out opacity-0 pointer-events-none z-0"
   >
   </div>
 
-  <div class="flex justify-center items-baseline gap-2">
-    <a
-      class="logo hover:cursor-pointer text-xl font-medium transition-colors z-10"
-      href="/"
-    >
-      <h3>Juan Moreno</h3>
+  <div class="flex items-center gap-4">
+    <a class="logo hover:cursor-pointer transition-colors z-10 group" href="/">
+      <h3 class="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+        Juan Moreno
+      </h3>
     </a>
     <button
       id="darkMode"
-      aria-label="Toggle Dark Mode"
-      class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200 transition-colors hover:bg-stone-300 dark:hover:bg-stone-600"
+      aria-label="Cambiar modo oscuro"
+      class="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-secondary-foreground transition-colors hover:bg-muted"
     >
-      <CiLight className="dark:hidden" />
-      <MdNightlight className="hidden dark:block" />
+      <CiLight className="dark:hidden w-5 h-5" />
+      <MdNightlight className="hidden dark:block w-5 h-5" />
     </button>
   </div>
 
   <nav class="nav-bar z-10">
-    <ul class="list-none hidden sm:flex gap-6">
-      <li><a class="transition-colors" href="/about">sobre mi</a></li>
-      <li><a class="transition-colors" href="/#proyectos">proyectos</a></li>
+    <ul class="list-none hidden md:flex gap-1">
       <li>
-        <a class="transition-colors" href="/JuanMoreno.pdf" download="JuanMorenoCV.pdf" target="_blank" rel="noopener noreferrer"
-          >CV</a
-        >
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/">
+          Inicio
+        </a>
       </li>
-      <li><a class="transition-colors" href="/about/#contacto">contacto</a></li>
+      <li>
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/#sobre-mi">
+          Sobre mi
+        </a>
+      </li>
+      <li>
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/proyectos">
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/#contacto">
+          Contacto
+        </a>
+      </li>
+      <li>
+        <a 
+          class="ml-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors" 
+          href="/JuanMoreno.pdf" 
+          download="JuanMorenoCV.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Descargar CV
+        </a>
+      </li>
     </ul>
-    <!-- Botón menú móvil -->
+
     <button
       id="open-menu"
-      class="sm:hidden p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-      aria-label="Abrir menú"
+      class="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+      aria-label="Abrir menu"
     >
-      <IoMenu size={28} />
+      <IoMenu size={24} />
     </button>
   </nav>
 </header>
-<!-- 🔹 Fondo oscurecido -->
+
+<!-- Mobile overlay -->
 <div
   id="menu-overlay"
-  class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-998"
+  class="fixed inset-0 bg-foreground/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-[998]"
 >
 </div>
 
-<!-- 🔹 Menú móvil -->
+<!-- Mobile menu -->
 <aside
   id="mobile-menu"
-  class="fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6 z-999"
+  class="fixed top-0 right-0 w-72 h-full bg-card shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6 z-[999]"
 >
-  <div class="flex justify-between items-center mb-8">
-    <a class="text-lg font-semibold text-gray-800 dark:text-gray-100" href="/"
-      >Menú</a
-    >
+  <div class="flex justify-between items-center mb-10">
+    <span class="text-lg font-semibold text-card-foreground">Menu</span>
     <button
       id="close-menu"
-      class="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-      aria-label="Cerrar menú"
+      class="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+      aria-label="Cerrar menu"
     >
-      <IoClose size={26} />
+      <IoClose size={24} />
     </button>
   </div>
 
-  <ul
-    class="flex flex-col gap-6 text-gray-800 dark:text-gray-200 font-medium text-lg"
-  >
-    <li class="flex items-center gap-2">
-      <IoHome />
+  <ul class="flex flex-col gap-2 text-card-foreground">
+    <li>
       <a
         href="/"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >Inicio</a
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
       >
+        <IoHome class="text-primary" />
+        <span>Inicio</span>
+      </a>
     </li>
-    <li class="flex items-center gap-2">
-      <IoPerson />
+    <li>
       <a
-        href="/about"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >Sobre mí</a
+        href="/#sobre-mi"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
       >
+        <IoPerson class="text-primary" />
+        <span>Sobre mi</span>
+      </a>
     </li>
-    <li class="flex items-center gap-2">
-      <IoBriefcase />
+    <li>
       <a
-        href="/#proyectos"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >Proyectos</a
+        href="/proyectos"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
       >
+        <IoCodeSlash class="text-primary" />
+        <span>Proyectos</span>
+      </a>
     </li>
-
-    <li class="flex items-center gap-2">
-      <IoBriefcase />
+    <li>
       <a
-        href="/perfilProfesional"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >Perfil profesional</a
+        href="/#contacto"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
       >
-    </li>
-    <li class="flex items-center gap-2">
-      <IoMail />
-      <a
-        href="/about/#contacto"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >Contacto</a
-      >
+        <IoMail class="text-primary" />
+        <span>Contacto</span>
+      </a>
     </li>
   </ul>
+
+  <div class="mt-auto pt-6 border-t border-border">
+    <a
+      href="/JuanMoreno.pdf"
+      download="JuanMorenoCV.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+    >
+      <IoBriefcase />
+      <span>Descargar CV</span>
+    </a>
+  </div>
 </aside>
-
-<style>
-  nav a {
-    padding: 8px 4px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 16px;
-    transition:
-      color 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  nav a:hover {
-    color: #0077ff;
-    transform: translateY(-2px);
-    cursor: pointer;
-  }
-
-  html.dark nav a {
-    color: #ddd;
-  }
-
-  html.dark nav a:hover {
-    color: #3399ff;
-  }
-
-  #menu-backdrop {
-    position: fixed;
-    transition: all 0.3s ease;
-  }
-</style>
 
 <script>
   const openMenu = document.getElementById("open-menu")!;
@@ -174,32 +159,38 @@ import { CiLight } from "react-icons/ci";
   const open = () => {
     mobileMenu.classList.remove("translate-x-full");
     overlay.classList.remove("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "hidden";
   };
 
   const close = () => {
     mobileMenu.classList.add("translate-x-full");
     overlay.classList.add("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "";
   };
 
   openMenu.addEventListener("click", open);
   closeMenu.addEventListener("click", close);
   overlay.addEventListener("click", close);
 
-  // Cerrar con tecla ESC
+  // Close on ESC key
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
   });
 
-  ////
-  const listItems = document.querySelectorAll(".nav-bar a, .logo");
+  // Close on link click
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", close);
+  });
+
+  // Menu backdrop effect for desktop
+  const listItems = document.querySelectorAll(".nav-link, .logo");
   const menuBackdrop = document.getElementById("menu-backdrop")!;
-  let timeoutId: any;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   listItems.forEach((item) => {
     item.addEventListener("mouseenter", () => {
       const { left, top, width, height } = item.getBoundingClientRect();
 
-      // Se actualizan las propiedades directamente (ahora sí animables)
       Object.assign(menuBackdrop.style, {
         left: `${left}px`,
         top: `${top}px`,

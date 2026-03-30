@@ -1,0 +1,56 @@
+---
+import { 
+  SiJavascript, 
+  SiTypescript, 
+  SiReact, 
+  SiNextdotjs,
+  SiAstro,
+  SiNodedotjs, 
+  SiPostgresql, 
+  SiMongodb,
+  SiTailwindcss,
+  SiGit,
+  SiSupabase,
+  SiFigma
+} from "react-icons/si";
+
+const skills = [
+  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+  { name: "React", icon: SiReact, color: "text-cyan-400" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-foreground" },
+  { name: "Astro", icon: SiAstro, color: "text-orange-500" },
+  { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
+  { name: "MongoDB", icon: SiMongodb, color: "text-green-400" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500" },
+  { name: "Git", icon: SiGit, color: "text-orange-600" },
+  { name: "Supabase", icon: SiSupabase, color: "text-emerald-500" },
+  { name: "Figma", icon: SiFigma, color: "text-pink-500" },
+];
+---
+
+<section id="habilidades" class="py-24 px-6 lg:px-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        Habilidades Tecnicas
+      </h2>
+      <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        Tecnologias y herramientas que utilizo para construir soluciones web modernas y escalables.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 fade-in">
+      {skills.map((skill) => (
+        <div class="group bg-card border border-border rounded-xl p-6 text-center hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+          <div class={`mb-3 flex justify-center ${skill.color}`}>
+            <skill.icon className="w-10 h-10 group-hover:scale-110 transition-transform" />
+          </div>
+          <span class="text-sm font-medium text-card-foreground">{skill.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

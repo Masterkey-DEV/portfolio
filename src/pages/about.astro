@@ -1,20 +1,4 @@
 ---
-import Main from "../components/about/Main.astro";
-import UserCard from "../components/about/cards/UserCard.astro";
-import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
-import ProjectsContainer from "../components/about/ProjectsContainer.astro";
-import Footer from "../components/Footer.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Redirect to main page about section
+return Astro.redirect('/#sobre-mi');
 ---
-
-<Layout>
-  <main class="mx-auto mt-8 max-w-2xl px-6 py-16 md:py-24">
-    <UserCard name="Juan Moreno" description="full-stack programer" />
-    <Main />
-    <ProjectsContainer />
-    <Footer />
-  </main>
-</Layout>
