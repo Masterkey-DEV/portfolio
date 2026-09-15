@@ -3,7 +3,7 @@ import type { APIRoute } from "astro";
 export const prerender = false;
 
 const GEMINI_API_KEY = import.meta.env.GEMINI_API_KEY;
-const MODEL = "gemini-2.5-flash";
+const MODEL = import.meta.env.GEMINI_MODEL ?? "gemini-3.6-flash";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 const SYSTEM_PROMPT = `Eres "JuanBot", el asistente virtual del portafolio de Juan Sebastian Moreno Mosquera (Juan Moreno), un desarrollador full stack de Cali, Colombia.
