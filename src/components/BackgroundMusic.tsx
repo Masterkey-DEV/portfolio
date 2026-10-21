@@ -4,53 +4,61 @@ import { FaMusic, FaVolumeMute } from "react-icons/fa";
 type AmbientEngine = {
   ctx: AudioContext;
   master: GainNode;
-  oscillators: OscillatorNode[];
-  lfo: OscillatorNode;
 };
 
 function createAmbient(): AmbientEngine {
   const ctx = new AudioContext();
 
   const master = ctx.createGain();
-  master.gain.setValueAtTime(0.0001, ctx.currentTime);
+  master.gain.value = 0.0001;
   master.connect(ctx.destination);
 
   const filter = ctx.createBiquadFilter();
   filter.type = "lowpass";
-  filter.frequency.value = 900;
-  filter.Q.value = 0.4;
-  filter.connect(master);
+  filter.frequency.value = 1600;
+  filter.Q.value = 0.5;
 
-  const freqs = [110, 164.81, 220, 261.63, 329.63];
-  const gains = [0.07, 0.05, 0.06, 0.05, 0.04];
+  const breathe = ctx.createGain();
+  breathe.gain.value = 1;
 
-  const oscillators = freqs.map((freq, i) => {
+  filter.connect(breathe);
+  breathe.connect(master);
+
+  const notes = [
+    { freq: 110.0, gain: 0.16, detune: 0 },
+    { freq: 164.81, gain: 0.11, detune: 3 },
+    { freq: 220.0, gain: 0.13, detune: -3 },
+    { freq: 261.63, gain: 0.1, detune: 2 },
+    { freq: 329.63, gain: 0.1, detune: -2 },
+    { freq: 493.88, gain: 0.04, detune: 0 },
+  ];
+
+  notes.forEach((n) => {
     const osc = ctx.createOscillator();
-    osc.type = "sine";
-    osc.frequency.value = freq;
-    osc.detune.value = (i - 2) * 4;
+    osc.type = "triangle";
+    osc.frequency.value = n.freq;
+    osc.detune.value = n.detune;
 
     const g = ctx.createGain();
-    g.gain.value = gains[i];
+    g.gain.value = n.gain;
 
     osc.connect(g);
     g.connect(filter);
     osc.start();
-
-    return osc;
   });
 
   const lfo = ctx.createOscillator();
   lfo.type = "sine";
-  lfo.frequency.value = 0.09;
+  lfo.frequency.value = 0.12;
 
   const lfoGain = ctx.createGain();
-  lfoGain.gain.value = 0.02;
+  lfoGain.gain.value = 0.28;
+
   lfo.connect(lfoGain);
-  lfoGain.connect(master.gain);
+  lfoGain.connect(breathe.gain);
   lfo.start();
 
-  return { ctx, master, oscillators, lfo };
+  return { ctx, master };
 }
 
 export default function BackgroundMusic() {
@@ -67,25 +75,13 @@ export default function BackgroundMusic() {
     if (playing) {
       const engine = engineRef.current;
       if (engine) {
-        engine.master.gain.cancelScheduledValues(engine.ctx.currentTime);
-        engine.master.gain.setValueAtTime(engine.master.gain.value, engine.ctx.currentTime);
-        engine.master.gain.linearRampToValueAtTime(0.0001, engine.ctx.currentTime + 1.5);
-
+        const now = engine.ctx.currentTime;
+        engine.master.gain.cancelScheduledValues(now);
+        engine.master.gain.setValueAtTime(engine.master.gain.value, now);
+        engine.master.gain.linearRampToValueAtTime(0.0001, now + 1);
         window.setTimeout(() => {
-          engine.oscillators.forEach((osc) => {
-            try {
-              osc.stop();
-            } catch {
-              /* ya detenido */
-            }
-          });
-          try {
-            engine.lfo.stop();
-          } catch {
-            /* ya detenido */
-          }
-          engine.ctx.close();
-        }, 1600);
+          engine.ctx.close().catch(() => {});
+        }, 1100);
       }
       engineRef.current = null;
       setPlaying(false);
@@ -94,9 +90,11 @@ export default function BackgroundMusic() {
       engineRef.current = engine;
 
       await engine.ctx.resume();
-      engine.master.gain.cancelScheduledValues(engine.ctx.currentTime);
-      engine.master.gain.setValueAtTime(0.0001, engine.ctx.currentTime);
-      engine.master.gain.linearRampToValueAtTime(0.16, engine.ctx.currentTime + 2);
+
+      const now = engine.ctx.currentTime;
+      engine.master.gain.cancelScheduledValues(now);
+      engine.master.gain.setValueAtTime(0.0001, now);
+      engine.master.gain.linearRampToValueAtTime(0.5, now + 2);
 
       setPlaying(true);
     }
