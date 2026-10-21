@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import ChatBot from "../components/ChatBot.tsx";
+import BackgroundMusic from "../components/BackgroundMusic.tsx";
 ---
 
 <!doctype html>
@@ -60,6 +61,7 @@ import ChatBot from "../components/ChatBot.tsx";
   <body class="min-h-screen bg-background text-foreground">
     <Header />
     <slot />
+    <BackgroundMusic client:load />
     <ChatBot client:load />
 
     <script>
