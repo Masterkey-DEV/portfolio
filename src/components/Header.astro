@@ -1,5 +1,5 @@
 ---
-import { IoClose, IoMenu, IoHome, IoPerson, IoBriefcase, IoMail, IoCodeSlash } from "react-icons/io5";
+import { IoClose, IoMenu, IoHome, IoPerson, IoBriefcase, IoMail, IoCodeSlash, IoConstruct, IoRocket } from "react-icons/io5";
 import { MdNightlight } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 ---
@@ -42,8 +42,18 @@ import { CiLight } from "react-icons/ci";
         </a>
       </li>
       <li>
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/#habilidades">
+          Habilidades
+        </a>
+      </li>
+      <li>
         <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/proyectos">
           Proyectos
+        </a>
+      </li>
+      <li>
+        <a class="nav-link px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" href="/#servicios">
+          Servicios
         </a>
       </li>
       <li>
@@ -118,11 +128,29 @@ import { CiLight } from "react-icons/ci";
     </li>
     <li>
       <a
+        href="/#habilidades"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
+      >
+        <IoConstruct class="text-primary" />
+        <span>Habilidades</span>
+      </a>
+    </li>
+    <li>
+      <a
         href="/proyectos"
         class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
       >
         <IoCodeSlash class="text-primary" />
         <span>Proyectos</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/#servicios"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary transition-colors"
+      >
+        <IoRocket class="text-primary" />
+        <span>Servicios</span>
       </a>
     </li>
     <li>
