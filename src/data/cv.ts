@@ -42,7 +42,7 @@ export const perfil: Perfil = {
   ubicacion: "Cali, Colombia",
   origen: "Chocó, Colombia",
   nacionalidad: "Colombiana",
-  telefono: "+57 314 595 8763",
+  telefono: "+57 316 156 2302",
   email: "juansebastianmoreno4.0@gmail.com",
   linkedin: "https://www.linkedin.com/in/el-mejor-dev-para-ti/",
   github: "https://github.com/Masterkey-DEV",
